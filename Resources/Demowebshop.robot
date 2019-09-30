@@ -12,6 +12,7 @@ User Open Homepage
 User Go To Login Tab
     Go To Login Tab
 User Registers
+    [Documentation]  This is the keyword for user registration
     [Arguments]  ${row}  @{creden}  
     Register Yourself
     Enter Credentials    @{creden}
