@@ -1,0 +1,1617 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.1.2 (Python 3.7.4 on win32)" generated="20190929 23:23:58.646" rpa="false">
+<suite id="s1" name="Demowebshop" source="C:\Users\anmol.srivastava\eclipse-workspace\Demowebshop">
+<suite id="s1-s1" name="Tests" source="C:\Users\anmol.srivastava\eclipse-workspace\Demowebshop\Tests">
+<suite id="s1-s1-s1" name="Registration" source="C:\Users\anmol.srivastava\eclipse-workspace\Demowebshop\Tests\Registration.robot">
+<test id="s1-s1-s1-t1" name="Test Case For Login Attempt For Both Registered And Unregistered User">
+<kw name="Open Chrome Browser" library="Commons" type="setup">
+<doc>This is the common activity for opening the chrome browser</doc>
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>about:blank</arg>
+<arg>chrome</arg>
+</arguments>
+<msg timestamp="20190929 23:24:00.952" level="INFO">Opening browser 'chrome' to base url 'about:blank'.</msg>
+<status status="PASS" starttime="20190929 23:24:00.952" endtime="20190929 23:24:08.218"></status>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20190929 23:24:08.218" endtime="20190929 23:24:09.360"></status>
+</kw>
+<status status="PASS" starttime="20190929 23:24:00.952" endtime="20190929 23:24:09.360"></status>
+</kw>
+<kw name="User Open Homepage" library="Demowebshop">
+<kw name="Go To Homepage" library="Homepage">
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the active browser instance to the provided ``url``.</doc>
+<arguments>
+<arg>http://demowebshop.tricentis.com/</arg>
+</arguments>
+<msg timestamp="20190929 23:24:09.364" level="INFO">Opening url 'http://demowebshop.tricentis.com/'</msg>
+<status status="PASS" starttime="20190929 23:24:09.364" endtime="20190929 23:24:12.261"></status>
+</kw>
+<status status="PASS" starttime="20190929 23:24:09.364" endtime="20190929 23:24:12.265"></status>
+</kw>
+<kw name="Verify Homepage" library="Homepage">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<doc>Verifies that current page title equals ``title``.</doc>
+<arguments>
+<arg>Demo Web Shop</arg>
+</arguments>
+<msg timestamp="20190929 23:24:12.277" level="INFO">Page title is 'Demo Web Shop'.</msg>
+<status status="PASS" starttime="20190929 23:24:12.265" endtime="20190929 23:24:12.277"></status>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<arguments>
+<arg>${login_link}</arg>
+</arguments>
+<msg timestamp="20190929 23:24:12.304" level="INFO">Current page contains element 'xpath=//a[@href='/login']'.</msg>
+<status status="PASS" starttime="20190929 23:24:12.277" endtime="20190929 23:24:12.304"></status>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<arguments>
+<arg>${demowebshop_image}</arg>
+</arguments>
+<msg timestamp="20190929 23:24:12.332" level="INFO">Current page contains element 'xpath=//img[@src='/Themes/DefaultClean/Content/images/logo.png']'.</msg>
+<status status="PASS" starttime="20190929 23:24:12.304" endtime="20190929 23:24:12.332"></status>
+</kw>
+<status status="PASS" starttime="20190929 23:24:12.265" endtime="20190929 23:24:12.332"></status>
+</kw>
+<status status="PASS" starttime="20190929 23:24:09.364" endtime="20190929 23:24:12.332"></status>
+</kw>
+<kw name="${row} IN RANGE [ 2 | 8 ]" type="for">
+<kw name="${row} = 2" type="foritem">
+<kw name="Read from Excel File" library="GetData">
+<arguments>
+<arg>${row}</arg>
+</arguments>
+<assign>
+<var>@{c}</var>
+</assign>
+<kw name="Open Excel Document" library="ExcelLibrary">
+<doc>Opens xlsx document file.</doc>
+<arguments>
+<arg>filename=DemoWebShopData.xlsx</arg>
+<arg>doc_id=${row_index}</arg>
+</arguments>
+<status status="PASS" starttime="20190929 23:24:12.336" endtime="20190929 23:24:12.360"></status>
+</kw>
+<kw name="Read Excel Row" library="ExcelLibrary">
+<doc>Returns content of a row from the current sheet of the document.</doc>
+<arguments>
+<arg>row_num=${row_index}</arg>
+</arguments>
+<assign>
+<var>@{cre}</var>
+</assign>
+<msg timestamp="20190929 23:24:12.360" level="INFO">@{cre} = [ Anmol | Srivastava | anmolgoo1ooglecom@gmail.com | anmol@123 | male | None ]</msg>
+<status status="PASS" starttime="20190929 23:24:12.360" endtime="20190929 23:24:12.360"></status>
+</kw>
+<kw name="Close Current Excel Document" library="ExcelLibrary">
+<doc>Closes current document.</doc>
+<status status="PASS" starttime="20190929 23:24:12.364" endtime="20190929 23:24:12.364"></status>
+</kw>
+<msg timestamp="20190929 23:24:12.364" level="INFO">@{c} = [ Anmol | Srivastava | anmolgoo1ooglecom@gmail.com | anmol@123 | male | None ]</msg>
+<status status="PASS" starttime="20190929 23:24:12.336" endtime="20190929 23:24:12.368"></status>
+</kw>
+<kw name="User Go To Login Tab" library="Demowebshop">
+<kw name="Go To Login Tab" library="Homepage">
+<kw name="Click Link" library="SeleniumLibrary">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>${login_link}</arg>
+</arguments>
+<msg timestamp="20190929 23:24:12.372" level="INFO">Clicking link 'xpath=//a[@href='/login']'.</msg>
+<status status="PASS" starttime="20190929 23:24:12.368" endtime="20190929 23:24:13.059"></status>
+</kw>
+<status status="PASS" starttime="20190929 23:24:12.368" endtime="20190929 23:24:13.059"></status>
+</kw>
+<status status="PASS" starttime="20190929 23:24:12.368" endtime="20190929 23:24:13.059"></status>
+</kw>
+<kw name="User Attempts Login" library="Demowebshop">
+<arguments>
+<arg>${row}</arg>
+<arg>@{c}</arg>
+</arguments>
+<kw name="Login Into Account" library="Loginpage">
+<arguments>
+<arg>@{credentialss}</arg>
+</arguments>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${email_textfield}</arg>
+<arg>${credentials[2]}</arg>
+</arguments>
+<msg timestamp="20190929 23:24:13.063" level="INFO">Typing text 'anmolgoo1ooglecom@gmail.com' into text field 'xpath=//input[@id='Email']'.</msg>
+<status status="PASS" starttime="20190929 23:24:13.063" endtime="20190929 23:24:13.315"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${password_textfield}</arg>
+<arg>${credentials[3]}</arg>
+</arguments>
+<msg timestamp="20190929 23:24:13.319" level="INFO">Typing text 'anmol@123' into text field 'xpath=//input[@id='Password']'.</msg>
+<status status="PASS" starttime="20190929 23:24:13.319" endtime="20190929 23:24:13.479"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>${login_button}</arg>
+</arguments>
+<msg timestamp="20190929 23:24:13.479" level="INFO">Clicking element 'xpath=//input[@value='Log in']'.</msg>
+<status status="PASS" starttime="20190929 23:24:13.479" endtime="20190929 23:24:14.434"></status>
+</kw>
+<status status="PASS" starttime="20190929 23:24:13.063" endtime="20190929 23:24:14.434"></status>
+</kw>
+<kw name="Get Status Code" library="Loginpage">
+<assign>
+<var>${booool}</var>
+</assign>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Verify Error Message For Not Registered</arg>
+</arguments>
+<assign>
+<var>${status_code}</var>
+</assign>
+<kw name="Verify Error Message For Not Registered" library="Loginpage">
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>Login was unsuccessful. Please correct the errors and try again.</arg>
+</arguments>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20190929 23:24:14.933" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20190929 23:24:14.522" endtime="20190929 23:24:14.933"></status>
+</kw>
+<msg timestamp="20190929 23:24:14.945" level="FAIL">Page should have contained text 'Login was unsuccessful. Please correct the errors and try again.' but did not.</msg>
+<status status="FAIL" starttime="20190929 23:24:14.442" endtime="20190929 23:24:14.945"></status>
+</kw>
+<status status="FAIL" starttime="20190929 23:24:14.442" endtime="20190929 23:24:14.949"></status>
+</kw>
+<msg timestamp="20190929 23:24:14.949" level="INFO">${status_code} = False</msg>
+<status status="PASS" starttime="20190929 23:24:14.438" endtime="20190929 23:24:14.949"></status>
+</kw>
+<msg timestamp="20190929 23:24:14.949" level="INFO">${booool} = False</msg>
+<status status="PASS" starttime="20190929 23:24:14.438" endtime="20190929 23:24:14.949"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${booool}</arg>
+<arg>User Registers</arg>
+<arg>${roww}</arg>
+<arg>@{credentialss}</arg>
+<arg>ELSE</arg>
+<arg>Verify Successful Login</arg>
+<arg>${roww}</arg>
+<arg>@{credentialss}</arg>
+</arguments>
+<kw name="Verify Successful Login" library="SuccessfulLogin">
+<arguments>
+<arg>${roww}</arg>
+<arg>@{credentialss}</arg>
+</arguments>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>${credentials1[2]}</arg>
+</arguments>
+<msg timestamp="20190929 23:24:14.981" level="INFO">Current page contains text 'anmolgoo1ooglecom@gmail.com'.</msg>
+<status status="PASS" starttime="20190929 23:24:14.953" endtime="20190929 23:24:14.981"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>Already Registerd User</arg>
+</arguments>
+<assign>
+<var>${message}</var>
+</assign>
+<msg timestamp="20190929 23:24:14.981" level="INFO">${message} = Already Registerd User</msg>
+<status status="PASS" starttime="20190929 23:24:14.981" endtime="20190929 23:24:14.981"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>6</arg>
+</arguments>
+<assign>
+<var>${col_no}</var>
+</assign>
+<msg timestamp="20190929 23:24:14.985" level="INFO">${col_no} = 6</msg>
+<status status="PASS" starttime="20190929 23:24:14.985" endtime="20190929 23:24:14.985"></status>
+</kw>
+<kw name="Open Excel Document" library="ExcelLibrary">
+<doc>Opens xlsx document file.</doc>
+<arguments>
+<arg>filename=DemoWebShopData.xlsx</arg>
+<arg>doc_id=${roww}</arg>
+</arguments>
+<status status="PASS" starttime="20190929 23:24:14.985" endtime="20190929 23:24:15.005"></status>
+</kw>
+<kw name="Write Excel Cell" library="ExcelLibrary">
+<doc>Writes value to the cell.</doc>
+<arguments>
+<arg>${roww}</arg>
+<arg>${col_no}</arg>
+<arg>${message}</arg>
+</arguments>
+<status status="PASS" starttime="20190929 23:24:15.005" endtime="20190929 23:24:15.005"></status>
+</kw>
+<kw name="Save Excel Document" library="ExcelLibrary">
+<doc>Saves the current document to disk.</doc>
+<arguments>
+<arg>filename=DemoWebShopData.xlsx</arg>
+</arguments>
+<status status="PASS" starttime="20190929 23:24:15.005" endtime="20190929 23:24:15.033"></status>
+</kw>
+<kw name="Close Current Excel Document" library="ExcelLibrary">
+<doc>Closes current document.</doc>
+<status status="PASS" starttime="20190929 23:24:15.033" endtime="20190929 23:24:15.037"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>${logout}</arg>
+</arguments>
+<msg timestamp="20190929 23:24:15.037" level="INFO">Clicking element 'xpath=//a[@href='/logout']'.</msg>
+<status status="PASS" starttime="20190929 23:24:15.037" endtime="20190929 23:24:15.940"></status>
+</kw>
+<status status="PASS" starttime="20190929 23:24:14.949" endtime="20190929 23:24:15.944"></status>
+</kw>
+<status status="PASS" starttime="20190929 23:24:14.949" endtime="20190929 23:24:15.944"></status>
+</kw>
+<status status="PASS" starttime="20190929 23:24:13.063" endtime="20190929 23:24:15.944"></status>
+</kw>
+<status status="PASS" starttime="20190929 23:24:12.336" endtime="20190929 23:24:15.944"></status>
+</kw>
+<kw name="${row} = 3" type="foritem">
+<kw name="Read from Excel File" library="GetData">
+<arguments>
+<arg>${row}</arg>
+</arguments>
+<assign>
+<var>@{c}</var>
+</assign>
+<kw name="Open Excel Document" library="ExcelLibrary">
+<doc>Opens xlsx document file.</doc>
+<arguments>
+<arg>filename=DemoWebShopData.xlsx</arg>
+<arg>doc_id=${row_index}</arg>
+</arguments>
+<status status="PASS" starttime="20190929 23:24:15.944" endtime="20190929 23:24:15.972"></status>
+</kw>
+<kw name="Read Excel Row" library="ExcelLibrary">
+<doc>Returns content of a row from the current sheet of the document.</doc>
+<arguments>
+<arg>row_num=${row_index}</arg>
+</arguments>
+<assign>
+<var>@{cre}</var>
+</assign>
+<msg timestamp="20190929 23:24:15.976" level="INFO">@{cre} = [ Rohit | Singh | rohitsamsungcom@gmail.com | rohit@123 | male | None ]</msg>
+<status status="PASS" starttime="20190929 23:24:15.972" endtime="20190929 23:24:15.976"></status>
+</kw>
+<kw name="Close Current Excel Document" library="ExcelLibrary">
+<doc>Closes current document.</doc>
+<status status="PASS" starttime="20190929 23:24:15.976" endtime="20190929 23:24:15.976"></status>
+</kw>
+<msg timestamp="20190929 23:24:15.976" level="INFO">@{c} = [ Rohit | Singh | rohitsamsungcom@gmail.com | rohit@123 | male | None ]</msg>
+<status status="PASS" starttime="20190929 23:24:15.944" endtime="20190929 23:24:15.976"></status>
+</kw>
+<kw name="User Go To Login Tab" library="Demowebshop">
+<kw name="Go To Login Tab" library="Homepage">
+<kw name="Click Link" library="SeleniumLibrary">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>${login_link}</arg>
+</arguments>
+<msg timestamp="20190929 23:24:15.980" level="INFO">Clicking link 'xpath=//a[@href='/login']'.</msg>
+<status status="PASS" starttime="20190929 23:24:15.980" endtime="20190929 23:24:16.635"></status>
+</kw>
+<status status="PASS" starttime="20190929 23:24:15.976" endtime="20190929 23:24:16.635"></status>
+</kw>
+<status status="PASS" starttime="20190929 23:24:15.976" endtime="20190929 23:24:16.635"></status>
+</kw>
+<kw name="User Attempts Login" library="Demowebshop">
+<arguments>
+<arg>${row}</arg>
+<arg>@{c}</arg>
+</arguments>
+<kw name="Login Into Account" library="Loginpage">
+<arguments>
+<arg>@{credentialss}</arg>
+</arguments>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${email_textfield}</arg>
+<arg>${credentials[2]}</arg>
+</arguments>
+<msg timestamp="20190929 23:24:16.639" level="INFO">Typing text 'rohitsamsungcom@gmail.com' into text field 'xpath=//input[@id='Email']'.</msg>
+<status status="PASS" starttime="20190929 23:24:16.639" endtime="20190929 23:24:16.886"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${password_textfield}</arg>
+<arg>${credentials[3]}</arg>
+</arguments>
+<msg timestamp="20190929 23:24:16.890" level="INFO">Typing text 'rohit@123' into text field 'xpath=//input[@id='Password']'.</msg>
+<status status="PASS" starttime="20190929 23:24:16.886" endtime="20190929 23:24:17.046"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>${login_button}</arg>
+</arguments>
+<msg timestamp="20190929 23:24:17.050" level="INFO">Clicking element 'xpath=//input[@value='Log in']'.</msg>
+<status status="PASS" starttime="20190929 23:24:17.050" endtime="20190929 23:24:17.909"></status>
+</kw>
+<status status="PASS" starttime="20190929 23:24:16.639" endtime="20190929 23:24:17.909"></status>
+</kw>
+<kw name="Get Status Code" library="Loginpage">
+<assign>
+<var>${booool}</var>
+</assign>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Verify Error Message For Not Registered</arg>
+</arguments>
+<assign>
+<var>${status_code}</var>
+</assign>
+<kw name="Verify Error Message For Not Registered" library="Loginpage">
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>Login was unsuccessful. Please correct the errors and try again.</arg>
+</arguments>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20190929 23:24:18.376" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20190929 23:24:17.989" endtime="20190929 23:24:18.376"></status>
+</kw>
+<msg timestamp="20190929 23:24:18.376" level="FAIL">Page should have contained text 'Login was unsuccessful. Please correct the errors and try again.' but did not.</msg>
+<status status="FAIL" starttime="20190929 23:24:17.917" endtime="20190929 23:24:18.376"></status>
+</kw>
+<status status="FAIL" starttime="20190929 23:24:17.913" endtime="20190929 23:24:18.380"></status>
+</kw>
+<msg timestamp="20190929 23:24:18.380" level="INFO">${status_code} = False</msg>
+<status status="PASS" starttime="20190929 23:24:17.913" endtime="20190929 23:24:18.380"></status>
+</kw>
+<msg timestamp="20190929 23:24:18.380" level="INFO">${booool} = False</msg>
+<status status="PASS" starttime="20190929 23:24:17.909" endtime="20190929 23:24:18.380"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${booool}</arg>
+<arg>User Registers</arg>
+<arg>${roww}</arg>
+<arg>@{credentialss}</arg>
+<arg>ELSE</arg>
+<arg>Verify Successful Login</arg>
+<arg>${roww}</arg>
+<arg>@{credentialss}</arg>
+</arguments>
+<kw name="Verify Successful Login" library="SuccessfulLogin">
+<arguments>
+<arg>${roww}</arg>
+<arg>@{credentialss}</arg>
+</arguments>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>${credentials1[2]}</arg>
+</arguments>
+<msg timestamp="20190929 23:24:18.412" level="INFO">Current page contains text 'rohitsamsungcom@gmail.com'.</msg>
+<status status="PASS" starttime="20190929 23:24:18.384" endtime="20190929 23:24:18.412"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>Already Registerd User</arg>
+</arguments>
+<assign>
+<var>${message}</var>
+</assign>
+<msg timestamp="20190929 23:24:18.412" level="INFO">${message} = Already Registerd User</msg>
+<status status="PASS" starttime="20190929 23:24:18.412" endtime="20190929 23:24:18.412"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>6</arg>
+</arguments>
+<assign>
+<var>${col_no}</var>
+</assign>
+<msg timestamp="20190929 23:24:18.416" level="INFO">${col_no} = 6</msg>
+<status status="PASS" starttime="20190929 23:24:18.416" endtime="20190929 23:24:18.416"></status>
+</kw>
+<kw name="Open Excel Document" library="ExcelLibrary">
+<doc>Opens xlsx document file.</doc>
+<arguments>
+<arg>filename=DemoWebShopData.xlsx</arg>
+<arg>doc_id=${roww}</arg>
+</arguments>
+<status status="PASS" starttime="20190929 23:24:18.416" endtime="20190929 23:24:18.436"></status>
+</kw>
+<kw name="Write Excel Cell" library="ExcelLibrary">
+<doc>Writes value to the cell.</doc>
+<arguments>
+<arg>${roww}</arg>
+<arg>${col_no}</arg>
+<arg>${message}</arg>
+</arguments>
+<status status="PASS" starttime="20190929 23:24:18.436" endtime="20190929 23:24:18.436"></status>
+</kw>
+<kw name="Save Excel Document" library="ExcelLibrary">
+<doc>Saves the current document to disk.</doc>
+<arguments>
+<arg>filename=DemoWebShopData.xlsx</arg>
+</arguments>
+<status status="PASS" starttime="20190929 23:24:18.436" endtime="20190929 23:24:18.464"></status>
+</kw>
+<kw name="Close Current Excel Document" library="ExcelLibrary">
+<doc>Closes current document.</doc>
+<status status="PASS" starttime="20190929 23:24:18.464" endtime="20190929 23:24:18.468"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>${logout}</arg>
+</arguments>
+<msg timestamp="20190929 23:24:18.468" level="INFO">Clicking element 'xpath=//a[@href='/logout']'.</msg>
+<status status="PASS" starttime="20190929 23:24:18.468" endtime="20190929 23:24:19.323"></status>
+</kw>
+<status status="PASS" starttime="20190929 23:24:18.380" endtime="20190929 23:24:19.323"></status>
+</kw>
+<status status="PASS" starttime="20190929 23:24:18.380" endtime="20190929 23:24:19.327"></status>
+</kw>
+<status status="PASS" starttime="20190929 23:24:16.635" endtime="20190929 23:24:19.327"></status>
+</kw>
+<status status="PASS" starttime="20190929 23:24:15.944" endtime="20190929 23:24:19.327"></status>
+</kw>
+<kw name="${row} = 4" type="foritem">
+<kw name="Read from Excel File" library="GetData">
+<arguments>
+<arg>${row}</arg>
+</arguments>
+<assign>
+<var>@{c}</var>
+</assign>
+<kw name="Open Excel Document" library="ExcelLibrary">
+<doc>Opens xlsx document file.</doc>
+<arguments>
+<arg>filename=DemoWebShopData.xlsx</arg>
+<arg>doc_id=${row_index}</arg>
+</arguments>
+<status status="PASS" starttime="20190929 23:24:19.331" endtime="20190929 23:24:19.363"></status>
+</kw>
+<kw name="Read Excel Row" library="ExcelLibrary">
+<doc>Returns content of a row from the current sheet of the document.</doc>
+<arguments>
+<arg>row_num=${row_index}</arg>
+</arguments>
+<assign>
+<var>@{cre}</var>
+</assign>
+<msg timestamp="20190929 23:24:19.367" level="INFO">@{cre} = [ Anushka | Gupta | anushkkkautkarsh11aainnndddiamartcom@gmail.com | anushka@123 | female | None ]</msg>
+<status status="PASS" starttime="20190929 23:24:19.367" endtime="20190929 23:24:19.371"></status>
+</kw>
+<kw name="Close Current Excel Document" library="ExcelLibrary">
+<doc>Closes current document.</doc>
+<status status="PASS" starttime="20190929 23:24:19.371" endtime="20190929 23:24:19.371"></status>
+</kw>
+<msg timestamp="20190929 23:24:19.371" level="INFO">@{c} = [ Anushka | Gupta | anushkkkautkarsh11aainnndddiamartcom@gmail.com | anushka@123 | female | None ]</msg>
+<status status="PASS" starttime="20190929 23:24:19.327" endtime="20190929 23:24:19.371"></status>
+</kw>
+<kw name="User Go To Login Tab" library="Demowebshop">
+<kw name="Go To Login Tab" library="Homepage">
+<kw name="Click Link" library="SeleniumLibrary">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>${login_link}</arg>
+</arguments>
+<msg timestamp="20190929 23:24:19.375" level="INFO">Clicking link 'xpath=//a[@href='/login']'.</msg>
+<status status="PASS" starttime="20190929 23:24:19.375" endtime="20190929 23:24:19.966"></status>
+</kw>
+<status status="PASS" starttime="20190929 23:24:19.375" endtime="20190929 23:24:19.966"></status>
+</kw>
+<status status="PASS" starttime="20190929 23:24:19.375" endtime="20190929 23:24:19.966"></status>
+</kw>
+<kw name="User Attempts Login" library="Demowebshop">
+<arguments>
+<arg>${row}</arg>
+<arg>@{c}</arg>
+</arguments>
+<kw name="Login Into Account" library="Loginpage">
+<arguments>
+<arg>@{credentialss}</arg>
+</arguments>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${email_textfield}</arg>
+<arg>${credentials[2]}</arg>
+</arguments>
+<msg timestamp="20190929 23:24:19.974" level="INFO">Typing text 'anushkkkautkarsh11aainnndddiamartcom@gmail.com' into text field 'xpath=//input[@id='Email']'.</msg>
+<status status="PASS" starttime="20190929 23:24:19.974" endtime="20190929 23:24:20.318"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${password_textfield}</arg>
+<arg>${credentials[3]}</arg>
+</arguments>
+<msg timestamp="20190929 23:24:20.322" level="INFO">Typing text 'anushka@123' into text field 'xpath=//input[@id='Password']'.</msg>
+<status status="PASS" starttime="20190929 23:24:20.318" endtime="20190929 23:24:20.494"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>${login_button}</arg>
+</arguments>
+<msg timestamp="20190929 23:24:20.494" level="INFO">Clicking element 'xpath=//input[@value='Log in']'.</msg>
+<status status="PASS" starttime="20190929 23:24:20.494" endtime="20190929 23:24:21.193"></status>
+</kw>
+<status status="PASS" starttime="20190929 23:24:19.970" endtime="20190929 23:24:21.193"></status>
+</kw>
+<kw name="Get Status Code" library="Loginpage">
+<assign>
+<var>${booool}</var>
+</assign>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Verify Error Message For Not Registered</arg>
+</arguments>
+<assign>
+<var>${status_code}</var>
+</assign>
+<kw name="Verify Error Message For Not Registered" library="Loginpage">
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>Login was unsuccessful. Please correct the errors and try again.</arg>
+</arguments>
+<msg timestamp="20190929 23:24:21.221" level="INFO">Current page contains text 'Login was unsuccessful. Please correct the errors and try again.'.</msg>
+<status status="PASS" starttime="20190929 23:24:21.197" endtime="20190929 23:24:21.221"></status>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>No customer account found</arg>
+</arguments>
+<msg timestamp="20190929 23:24:21.253" level="INFO">Current page contains text 'No customer account found'.</msg>
+<status status="PASS" starttime="20190929 23:24:21.221" endtime="20190929 23:24:21.253"></status>
+</kw>
+<status status="PASS" starttime="20190929 23:24:21.197" endtime="20190929 23:24:21.253"></status>
+</kw>
+<msg timestamp="20190929 23:24:21.253" level="INFO">${status_code} = True</msg>
+<status status="PASS" starttime="20190929 23:24:21.193" endtime="20190929 23:24:21.253"></status>
+</kw>
+<msg timestamp="20190929 23:24:21.257" level="INFO">${booool} = True</msg>
+<status status="PASS" starttime="20190929 23:24:21.193" endtime="20190929 23:24:21.257"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${booool}</arg>
+<arg>User Registers</arg>
+<arg>${roww}</arg>
+<arg>@{credentialss}</arg>
+<arg>ELSE</arg>
+<arg>Verify Successful Login</arg>
+<arg>${roww}</arg>
+<arg>@{credentialss}</arg>
+</arguments>
+<kw name="User Registers" library="Demowebshop">
+<arguments>
+<arg>${roww}</arg>
+<arg>@{credentialss}</arg>
+</arguments>
+<kw name="Register Yourself" library="Loginpage">
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>${register}</arg>
+</arguments>
+<msg timestamp="20190929 23:24:21.261" level="INFO">Clicking element 'xpath=//input[@value='Register']'.</msg>
+<status status="PASS" starttime="20190929 23:24:21.261" endtime="20190929 23:24:21.940"></status>
+</kw>
+<status status="PASS" starttime="20190929 23:24:21.257" endtime="20190929 23:24:21.940"></status>
+</kw>
+<kw name="Enter Credentials" library="Registerpage">
+<arguments>
+<arg>@{creden}</arg>
+</arguments>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>xpath=//input[@id='gender-</arg>
+</arguments>
+<assign>
+<var>${base}</var>
+</assign>
+<msg timestamp="20190929 23:24:21.944" level="INFO">${base} = xpath=//input[@id='gender-</msg>
+<status status="PASS" starttime="20190929 23:24:21.940" endtime="20190929 23:24:21.944"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>']</arg>
+</arguments>
+<assign>
+<var>${tail}</var>
+</assign>
+<msg timestamp="20190929 23:24:21.944" level="INFO">${tail} = ']</msg>
+<status status="PASS" starttime="20190929 23:24:21.944" endtime="20190929 23:24:21.944"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${base}${credentials[4]}${tail}</arg>
+</arguments>
+<assign>
+<var>${gender}</var>
+</assign>
+<msg timestamp="20190929 23:24:21.948" level="INFO">${gender} = xpath=//input[@id='gender-female']</msg>
+<status status="PASS" starttime="20190929 23:24:21.944" endtime="20190929 23:24:21.948"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>${gender}</arg>
+</arguments>
+<msg timestamp="20190929 23:24:21.948" level="INFO">Clicking element 'xpath=//input[@id='gender-female']'.</msg>
+<status status="PASS" starttime="20190929 23:24:21.948" endtime="20190929 23:24:22.025"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${firstname}</arg>
+<arg>${credentials[0]}</arg>
+</arguments>
+<msg timestamp="20190929 23:24:22.029" level="INFO">Typing text 'Anushka' into text field 'xpath=//input[@id='FirstName']'.</msg>
+<status status="PASS" starttime="20190929 23:24:22.025" endtime="20190929 23:24:22.198"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${lastname}</arg>
+<arg>${credentials[1]}</arg>
+</arguments>
+<msg timestamp="20190929 23:24:22.198" level="INFO">Typing text 'Gupta' into text field 'xpath=//input[@id='LastName']'.</msg>
+<status status="PASS" starttime="20190929 23:24:22.198" endtime="20190929 23:24:22.346"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${email}</arg>
+<arg>${credentials[2]}</arg>
+</arguments>
+<msg timestamp="20190929 23:24:22.346" level="INFO">Typing text 'anushkkkautkarsh11aainnndddiamartcom@gmail.com' into text field 'xpath=//input[@id='Email']'.</msg>
+<status status="PASS" starttime="20190929 23:24:22.346" endtime="20190929 23:24:22.705"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${password}</arg>
+<arg>${credentials[3]}</arg>
+</arguments>
+<msg timestamp="20190929 23:24:22.705" level="INFO">Typing text 'anushka@123' into text field 'xpath=//input[@id='Password']'.</msg>
+<status status="PASS" starttime="20190929 23:24:22.705" endtime="20190929 23:24:22.859"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${confirmpassword}</arg>
+<arg>${credentials[3]}</arg>
+</arguments>
+<msg timestamp="20190929 23:24:22.859" level="INFO">Typing text 'anushka@123' into text field 'xpath=//input[@id='ConfirmPassword']'.</msg>
+<status status="PASS" starttime="20190929 23:24:22.859" endtime="20190929 23:24:23.006"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>${register}</arg>
+</arguments>
+<msg timestamp="20190929 23:24:23.010" level="INFO">Clicking element 'xpath=//input[@value='Register']'.</msg>
+<status status="PASS" starttime="20190929 23:24:23.010" endtime="20190929 23:24:24.044"></status>
+</kw>
+<status status="PASS" starttime="20190929 23:24:21.940" endtime="20190929 23:24:24.044"></status>
+</kw>
+<kw name="Verify Registration" library="Registerpage">
+<arguments>
+<arg>${row}</arg>
+<arg>@{creden}</arg>
+</arguments>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>${credentials1[2]}</arg>
+</arguments>
+<msg timestamp="20190929 23:24:24.088" level="INFO">Current page contains text 'anushkkkautkarsh11aainnndddiamartcom@gmail.com'.</msg>
+<status status="PASS" starttime="20190929 23:24:24.048" endtime="20190929 23:24:24.088"></status>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>Your registration completed</arg>
+</arguments>
+<msg timestamp="20190929 23:24:24.136" level="INFO">Current page contains text 'Your registration completed'.</msg>
+<status status="PASS" starttime="20190929 23:24:24.088" endtime="20190929 23:24:24.136"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>New User Registered</arg>
+</arguments>
+<assign>
+<var>${message}</var>
+</assign>
+<msg timestamp="20190929 23:24:24.140" level="INFO">${message} = New User Registered</msg>
+<status status="PASS" starttime="20190929 23:24:24.136" endtime="20190929 23:24:24.140"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>6</arg>
+</arguments>
+<assign>
+<var>${col_no}</var>
+</assign>
+<msg timestamp="20190929 23:24:24.140" level="INFO">${col_no} = 6</msg>
+<status status="PASS" starttime="20190929 23:24:24.140" endtime="20190929 23:24:24.140"></status>
+</kw>
+<kw name="Open Excel Document" library="ExcelLibrary">
+<doc>Opens xlsx document file.</doc>
+<arguments>
+<arg>filename=DemoWebShopData.xlsx</arg>
+<arg>doc_id=${row}</arg>
+</arguments>
+<status status="PASS" starttime="20190929 23:24:24.140" endtime="20190929 23:24:24.156"></status>
+</kw>
+<kw name="Write Excel Cell" library="ExcelLibrary">
+<doc>Writes value to the cell.</doc>
+<arguments>
+<arg>${row}</arg>
+<arg>${col_no}</arg>
+<arg>${message}</arg>
+</arguments>
+<status status="PASS" starttime="20190929 23:24:24.156" endtime="20190929 23:24:24.160"></status>
+</kw>
+<kw name="Save Excel Document" library="ExcelLibrary">
+<doc>Saves the current document to disk.</doc>
+<arguments>
+<arg>filename=DemoWebShopData.xlsx</arg>
+</arguments>
+<status status="PASS" starttime="20190929 23:24:24.160" endtime="20190929 23:24:24.180"></status>
+</kw>
+<kw name="Close Current Excel Document" library="ExcelLibrary">
+<doc>Closes current document.</doc>
+<status status="PASS" starttime="20190929 23:24:24.180" endtime="20190929 23:24:24.180"></status>
+</kw>
+<kw name="Click Link" library="SeleniumLibrary">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>${logout}</arg>
+</arguments>
+<msg timestamp="20190929 23:24:24.184" level="INFO">Clicking link 'xpath=//a[@href='/logout']'.</msg>
+<status status="PASS" starttime="20190929 23:24:24.180" endtime="20190929 23:24:25.047"></status>
+</kw>
+<status status="PASS" starttime="20190929 23:24:24.044" endtime="20190929 23:24:25.047"></status>
+</kw>
+<status status="PASS" starttime="20190929 23:24:21.257" endtime="20190929 23:24:25.047"></status>
+</kw>
+<status status="PASS" starttime="20190929 23:24:21.257" endtime="20190929 23:24:25.047"></status>
+</kw>
+<status status="PASS" starttime="20190929 23:24:19.970" endtime="20190929 23:24:25.051"></status>
+</kw>
+<status status="PASS" starttime="20190929 23:24:19.327" endtime="20190929 23:24:25.051"></status>
+</kw>
+<kw name="${row} = 5" type="foritem">
+<kw name="Read from Excel File" library="GetData">
+<arguments>
+<arg>${row}</arg>
+</arguments>
+<assign>
+<var>@{c}</var>
+</assign>
+<kw name="Open Excel Document" library="ExcelLibrary">
+<doc>Opens xlsx document file.</doc>
+<arguments>
+<arg>filename=DemoWebShopData.xlsx</arg>
+<arg>doc_id=${row_index}</arg>
+</arguments>
+<status status="PASS" starttime="20190929 23:24:25.055" endtime="20190929 23:24:25.079"></status>
+</kw>
+<kw name="Read Excel Row" library="ExcelLibrary">
+<doc>Returns content of a row from the current sheet of the document.</doc>
+<arguments>
+<arg>row_num=${row_index}</arg>
+</arguments>
+<assign>
+<var>@{cre}</var>
+</assign>
+<msg timestamp="20190929 23:24:25.083" level="INFO">@{cre} = [ Rajpriya | Rajan | rajpriycdaccom@gmail.com | rajpriya@123 | male | None ]</msg>
+<status status="PASS" starttime="20190929 23:24:25.083" endtime="20190929 23:24:25.087"></status>
+</kw>
+<kw name="Close Current Excel Document" library="ExcelLibrary">
+<doc>Closes current document.</doc>
+<status status="PASS" starttime="20190929 23:24:25.087" endtime="20190929 23:24:25.087"></status>
+</kw>
+<msg timestamp="20190929 23:24:25.087" level="INFO">@{c} = [ Rajpriya | Rajan | rajpriycdaccom@gmail.com | rajpriya@123 | male | None ]</msg>
+<status status="PASS" starttime="20190929 23:24:25.051" endtime="20190929 23:24:25.091"></status>
+</kw>
+<kw name="User Go To Login Tab" library="Demowebshop">
+<kw name="Go To Login Tab" library="Homepage">
+<kw name="Click Link" library="SeleniumLibrary">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>${login_link}</arg>
+</arguments>
+<msg timestamp="20190929 23:24:25.091" level="INFO">Clicking link 'xpath=//a[@href='/login']'.</msg>
+<status status="PASS" starttime="20190929 23:24:25.091" endtime="20190929 23:24:25.690"></status>
+</kw>
+<status status="PASS" starttime="20190929 23:24:25.091" endtime="20190929 23:24:25.690"></status>
+</kw>
+<status status="PASS" starttime="20190929 23:24:25.091" endtime="20190929 23:24:25.690"></status>
+</kw>
+<kw name="User Attempts Login" library="Demowebshop">
+<arguments>
+<arg>${row}</arg>
+<arg>@{c}</arg>
+</arguments>
+<kw name="Login Into Account" library="Loginpage">
+<arguments>
+<arg>@{credentialss}</arg>
+</arguments>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${email_textfield}</arg>
+<arg>${credentials[2]}</arg>
+</arguments>
+<msg timestamp="20190929 23:24:25.694" level="INFO">Typing text 'rajpriycdaccom@gmail.com' into text field 'xpath=//input[@id='Email']'.</msg>
+<status status="PASS" starttime="20190929 23:24:25.694" endtime="20190929 23:24:25.910"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${password_textfield}</arg>
+<arg>${credentials[3]}</arg>
+</arguments>
+<msg timestamp="20190929 23:24:25.910" level="INFO">Typing text 'rajpriya@123' into text field 'xpath=//input[@id='Password']'.</msg>
+<status status="PASS" starttime="20190929 23:24:25.910" endtime="20190929 23:24:26.125"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>${login_button}</arg>
+</arguments>
+<msg timestamp="20190929 23:24:26.129" level="INFO">Clicking element 'xpath=//input[@value='Log in']'.</msg>
+<status status="PASS" starttime="20190929 23:24:26.129" endtime="20190929 23:24:27.104"></status>
+</kw>
+<status status="PASS" starttime="20190929 23:24:25.694" endtime="20190929 23:24:27.108"></status>
+</kw>
+<kw name="Get Status Code" library="Loginpage">
+<assign>
+<var>${booool}</var>
+</assign>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Verify Error Message For Not Registered</arg>
+</arguments>
+<assign>
+<var>${status_code}</var>
+</assign>
+<kw name="Verify Error Message For Not Registered" library="Loginpage">
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>Login was unsuccessful. Please correct the errors and try again.</arg>
+</arguments>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20190929 23:24:27.611" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20190929 23:24:27.192" endtime="20190929 23:24:27.611"></status>
+</kw>
+<msg timestamp="20190929 23:24:27.615" level="FAIL">Page should have contained text 'Login was unsuccessful. Please correct the errors and try again.' but did not.</msg>
+<status status="FAIL" starttime="20190929 23:24:27.112" endtime="20190929 23:24:27.615"></status>
+</kw>
+<status status="FAIL" starttime="20190929 23:24:27.108" endtime="20190929 23:24:27.615"></status>
+</kw>
+<msg timestamp="20190929 23:24:27.615" level="INFO">${status_code} = False</msg>
+<status status="PASS" starttime="20190929 23:24:27.108" endtime="20190929 23:24:27.615"></status>
+</kw>
+<msg timestamp="20190929 23:24:27.619" level="INFO">${booool} = False</msg>
+<status status="PASS" starttime="20190929 23:24:27.108" endtime="20190929 23:24:27.619"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${booool}</arg>
+<arg>User Registers</arg>
+<arg>${roww}</arg>
+<arg>@{credentialss}</arg>
+<arg>ELSE</arg>
+<arg>Verify Successful Login</arg>
+<arg>${roww}</arg>
+<arg>@{credentialss}</arg>
+</arguments>
+<kw name="Verify Successful Login" library="SuccessfulLogin">
+<arguments>
+<arg>${roww}</arg>
+<arg>@{credentialss}</arg>
+</arguments>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>${credentials1[2]}</arg>
+</arguments>
+<msg timestamp="20190929 23:24:27.651" level="INFO">Current page contains text 'rajpriycdaccom@gmail.com'.</msg>
+<status status="PASS" starttime="20190929 23:24:27.623" endtime="20190929 23:24:27.651"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>Already Registerd User</arg>
+</arguments>
+<assign>
+<var>${message}</var>
+</assign>
+<msg timestamp="20190929 23:24:27.655" level="INFO">${message} = Already Registerd User</msg>
+<status status="PASS" starttime="20190929 23:24:27.655" endtime="20190929 23:24:27.655"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>6</arg>
+</arguments>
+<assign>
+<var>${col_no}</var>
+</assign>
+<msg timestamp="20190929 23:24:27.655" level="INFO">${col_no} = 6</msg>
+<status status="PASS" starttime="20190929 23:24:27.655" endtime="20190929 23:24:27.655"></status>
+</kw>
+<kw name="Open Excel Document" library="ExcelLibrary">
+<doc>Opens xlsx document file.</doc>
+<arguments>
+<arg>filename=DemoWebShopData.xlsx</arg>
+<arg>doc_id=${roww}</arg>
+</arguments>
+<status status="PASS" starttime="20190929 23:24:27.655" endtime="20190929 23:24:27.667"></status>
+</kw>
+<kw name="Write Excel Cell" library="ExcelLibrary">
+<doc>Writes value to the cell.</doc>
+<arguments>
+<arg>${roww}</arg>
+<arg>${col_no}</arg>
+<arg>${message}</arg>
+</arguments>
+<status status="PASS" starttime="20190929 23:24:27.667" endtime="20190929 23:24:27.667"></status>
+</kw>
+<kw name="Save Excel Document" library="ExcelLibrary">
+<doc>Saves the current document to disk.</doc>
+<arguments>
+<arg>filename=DemoWebShopData.xlsx</arg>
+</arguments>
+<status status="PASS" starttime="20190929 23:24:27.667" endtime="20190929 23:24:27.699"></status>
+</kw>
+<kw name="Close Current Excel Document" library="ExcelLibrary">
+<doc>Closes current document.</doc>
+<status status="PASS" starttime="20190929 23:24:27.699" endtime="20190929 23:24:27.699"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>${logout}</arg>
+</arguments>
+<msg timestamp="20190929 23:24:27.699" level="INFO">Clicking element 'xpath=//a[@href='/logout']'.</msg>
+<status status="PASS" starttime="20190929 23:24:27.699" endtime="20190929 23:24:28.568"></status>
+</kw>
+<status status="PASS" starttime="20190929 23:24:27.619" endtime="20190929 23:24:28.568"></status>
+</kw>
+<status status="PASS" starttime="20190929 23:24:27.619" endtime="20190929 23:24:28.572"></status>
+</kw>
+<status status="PASS" starttime="20190929 23:24:25.694" endtime="20190929 23:24:28.572"></status>
+</kw>
+<status status="PASS" starttime="20190929 23:24:25.051" endtime="20190929 23:24:28.572"></status>
+</kw>
+<kw name="${row} = 6" type="foritem">
+<kw name="Read from Excel File" library="GetData">
+<arguments>
+<arg>${row}</arg>
+</arguments>
+<assign>
+<var>@{c}</var>
+</assign>
+<kw name="Open Excel Document" library="ExcelLibrary">
+<doc>Opens xlsx document file.</doc>
+<arguments>
+<arg>filename=DemoWebShopData.xlsx</arg>
+<arg>doc_id=${row_index}</arg>
+</arguments>
+<status status="PASS" starttime="20190929 23:24:28.576" endtime="20190929 23:24:28.608"></status>
+</kw>
+<kw name="Read Excel Row" library="ExcelLibrary">
+<doc>Returns content of a row from the current sheet of the document.</doc>
+<arguments>
+<arg>row_num=${row_index}</arg>
+</arguments>
+<assign>
+<var>@{cre}</var>
+</assign>
+<msg timestamp="20190929 23:24:28.612" level="INFO">@{cre} = [ Prachi | Goyal | prachiado111begoyal@gmail.com | prachi@123 | female | None ]</msg>
+<status status="PASS" starttime="20190929 23:24:28.608" endtime="20190929 23:24:28.612"></status>
+</kw>
+<kw name="Close Current Excel Document" library="ExcelLibrary">
+<doc>Closes current document.</doc>
+<status status="PASS" starttime="20190929 23:24:28.612" endtime="20190929 23:24:28.612"></status>
+</kw>
+<msg timestamp="20190929 23:24:28.612" level="INFO">@{c} = [ Prachi | Goyal | prachiado111begoyal@gmail.com | prachi@123 | female | None ]</msg>
+<status status="PASS" starttime="20190929 23:24:28.576" endtime="20190929 23:24:28.612"></status>
+</kw>
+<kw name="User Go To Login Tab" library="Demowebshop">
+<kw name="Go To Login Tab" library="Homepage">
+<kw name="Click Link" library="SeleniumLibrary">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>${login_link}</arg>
+</arguments>
+<msg timestamp="20190929 23:24:28.620" level="INFO">Clicking link 'xpath=//a[@href='/login']'.</msg>
+<status status="PASS" starttime="20190929 23:24:28.616" endtime="20190929 23:24:29.247"></status>
+</kw>
+<status status="PASS" starttime="20190929 23:24:28.616" endtime="20190929 23:24:29.247"></status>
+</kw>
+<status status="PASS" starttime="20190929 23:24:28.616" endtime="20190929 23:24:29.251"></status>
+</kw>
+<kw name="User Attempts Login" library="Demowebshop">
+<arguments>
+<arg>${row}</arg>
+<arg>@{c}</arg>
+</arguments>
+<kw name="Login Into Account" library="Loginpage">
+<arguments>
+<arg>@{credentialss}</arg>
+</arguments>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${email_textfield}</arg>
+<arg>${credentials[2]}</arg>
+</arguments>
+<msg timestamp="20190929 23:24:29.255" level="INFO">Typing text 'prachiado111begoyal@gmail.com' into text field 'xpath=//input[@id='Email']'.</msg>
+<status status="PASS" starttime="20190929 23:24:29.255" endtime="20190929 23:24:29.478"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${password_textfield}</arg>
+<arg>${credentials[3]}</arg>
+</arguments>
+<msg timestamp="20190929 23:24:29.478" level="INFO">Typing text 'prachi@123' into text field 'xpath=//input[@id='Password']'.</msg>
+<status status="PASS" starttime="20190929 23:24:29.478" endtime="20190929 23:24:29.638"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>${login_button}</arg>
+</arguments>
+<msg timestamp="20190929 23:24:29.638" level="INFO">Clicking element 'xpath=//input[@value='Log in']'.</msg>
+<status status="PASS" starttime="20190929 23:24:29.638" endtime="20190929 23:24:30.481"></status>
+</kw>
+<status status="PASS" starttime="20190929 23:24:29.251" endtime="20190929 23:24:30.481"></status>
+</kw>
+<kw name="Get Status Code" library="Loginpage">
+<assign>
+<var>${booool}</var>
+</assign>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Verify Error Message For Not Registered</arg>
+</arguments>
+<assign>
+<var>${status_code}</var>
+</assign>
+<kw name="Verify Error Message For Not Registered" library="Loginpage">
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>Login was unsuccessful. Please correct the errors and try again.</arg>
+</arguments>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20190929 23:24:30.945" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20190929 23:24:30.545" endtime="20190929 23:24:30.945"></status>
+</kw>
+<msg timestamp="20190929 23:24:30.945" level="FAIL">Page should have contained text 'Login was unsuccessful. Please correct the errors and try again.' but did not.</msg>
+<status status="FAIL" starttime="20190929 23:24:30.489" endtime="20190929 23:24:30.945"></status>
+</kw>
+<status status="FAIL" starttime="20190929 23:24:30.489" endtime="20190929 23:24:30.945"></status>
+</kw>
+<msg timestamp="20190929 23:24:30.949" level="INFO">${status_code} = False</msg>
+<status status="PASS" starttime="20190929 23:24:30.485" endtime="20190929 23:24:30.949"></status>
+</kw>
+<msg timestamp="20190929 23:24:30.949" level="INFO">${booool} = False</msg>
+<status status="PASS" starttime="20190929 23:24:30.485" endtime="20190929 23:24:30.949"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${booool}</arg>
+<arg>User Registers</arg>
+<arg>${roww}</arg>
+<arg>@{credentialss}</arg>
+<arg>ELSE</arg>
+<arg>Verify Successful Login</arg>
+<arg>${roww}</arg>
+<arg>@{credentialss}</arg>
+</arguments>
+<kw name="Verify Successful Login" library="SuccessfulLogin">
+<arguments>
+<arg>${roww}</arg>
+<arg>@{credentialss}</arg>
+</arguments>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>${credentials1[2]}</arg>
+</arguments>
+<msg timestamp="20190929 23:24:30.976" level="INFO">Current page contains text 'prachiado111begoyal@gmail.com'.</msg>
+<status status="PASS" starttime="20190929 23:24:30.949" endtime="20190929 23:24:30.980"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>Already Registerd User</arg>
+</arguments>
+<assign>
+<var>${message}</var>
+</assign>
+<msg timestamp="20190929 23:24:30.980" level="INFO">${message} = Already Registerd User</msg>
+<status status="PASS" starttime="20190929 23:24:30.980" endtime="20190929 23:24:30.980"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>6</arg>
+</arguments>
+<assign>
+<var>${col_no}</var>
+</assign>
+<msg timestamp="20190929 23:24:30.980" level="INFO">${col_no} = 6</msg>
+<status status="PASS" starttime="20190929 23:24:30.980" endtime="20190929 23:24:30.980"></status>
+</kw>
+<kw name="Open Excel Document" library="ExcelLibrary">
+<doc>Opens xlsx document file.</doc>
+<arguments>
+<arg>filename=DemoWebShopData.xlsx</arg>
+<arg>doc_id=${roww}</arg>
+</arguments>
+<status status="PASS" starttime="20190929 23:24:30.984" endtime="20190929 23:24:30.996"></status>
+</kw>
+<kw name="Write Excel Cell" library="ExcelLibrary">
+<doc>Writes value to the cell.</doc>
+<arguments>
+<arg>${roww}</arg>
+<arg>${col_no}</arg>
+<arg>${message}</arg>
+</arguments>
+<status status="PASS" starttime="20190929 23:24:30.996" endtime="20190929 23:24:30.996"></status>
+</kw>
+<kw name="Save Excel Document" library="ExcelLibrary">
+<doc>Saves the current document to disk.</doc>
+<arguments>
+<arg>filename=DemoWebShopData.xlsx</arg>
+</arguments>
+<status status="PASS" starttime="20190929 23:24:31.000" endtime="20190929 23:24:31.017"></status>
+</kw>
+<kw name="Close Current Excel Document" library="ExcelLibrary">
+<doc>Closes current document.</doc>
+<status status="PASS" starttime="20190929 23:24:31.017" endtime="20190929 23:24:31.017"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>${logout}</arg>
+</arguments>
+<msg timestamp="20190929 23:24:31.017" level="INFO">Clicking element 'xpath=//a[@href='/logout']'.</msg>
+<status status="PASS" starttime="20190929 23:24:31.017" endtime="20190929 23:24:31.899"></status>
+</kw>
+<status status="PASS" starttime="20190929 23:24:30.949" endtime="20190929 23:24:31.899"></status>
+</kw>
+<status status="PASS" starttime="20190929 23:24:30.949" endtime="20190929 23:24:31.903"></status>
+</kw>
+<status status="PASS" starttime="20190929 23:24:29.251" endtime="20190929 23:24:31.903"></status>
+</kw>
+<status status="PASS" starttime="20190929 23:24:28.576" endtime="20190929 23:24:31.903"></status>
+</kw>
+<kw name="${row} = 7" type="foritem">
+<kw name="Read from Excel File" library="GetData">
+<arguments>
+<arg>${row}</arg>
+</arguments>
+<assign>
+<var>@{c}</var>
+</assign>
+<kw name="Open Excel Document" library="ExcelLibrary">
+<doc>Opens xlsx document file.</doc>
+<arguments>
+<arg>filename=DemoWebShopData.xlsx</arg>
+<arg>doc_id=${row_index}</arg>
+</arguments>
+<status status="PASS" starttime="20190929 23:24:31.907" endtime="20190929 23:24:31.927"></status>
+</kw>
+<kw name="Read Excel Row" library="ExcelLibrary">
+<doc>Returns content of a row from the current sheet of the document.</doc>
+<arguments>
+<arg>row_num=${row_index}</arg>
+</arguments>
+<assign>
+<var>@{cre}</var>
+</assign>
+<msg timestamp="20190929 23:24:31.927" level="INFO">@{cre} = [ Prachi | Jain | prachiadutkarsho11oobbbejain@gmail.com | prachi@123 | female | None ]</msg>
+<status status="PASS" starttime="20190929 23:24:31.927" endtime="20190929 23:24:31.927"></status>
+</kw>
+<kw name="Close Current Excel Document" library="ExcelLibrary">
+<doc>Closes current document.</doc>
+<status status="PASS" starttime="20190929 23:24:31.927" endtime="20190929 23:24:31.931"></status>
+</kw>
+<msg timestamp="20190929 23:24:31.931" level="INFO">@{c} = [ Prachi | Jain | prachiadutkarsho11oobbbejain@gmail.com | prachi@123 | female | None ]</msg>
+<status status="PASS" starttime="20190929 23:24:31.903" endtime="20190929 23:24:31.931"></status>
+</kw>
+<kw name="User Go To Login Tab" library="Demowebshop">
+<kw name="Go To Login Tab" library="Homepage">
+<kw name="Click Link" library="SeleniumLibrary">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>${login_link}</arg>
+</arguments>
+<msg timestamp="20190929 23:24:31.935" level="INFO">Clicking link 'xpath=//a[@href='/login']'.</msg>
+<status status="PASS" starttime="20190929 23:24:31.935" endtime="20190929 23:24:32.542"></status>
+</kw>
+<status status="PASS" starttime="20190929 23:24:31.931" endtime="20190929 23:24:32.546"></status>
+</kw>
+<status status="PASS" starttime="20190929 23:24:31.931" endtime="20190929 23:24:32.546"></status>
+</kw>
+<kw name="User Attempts Login" library="Demowebshop">
+<arguments>
+<arg>${row}</arg>
+<arg>@{c}</arg>
+</arguments>
+<kw name="Login Into Account" library="Loginpage">
+<arguments>
+<arg>@{credentialss}</arg>
+</arguments>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${email_textfield}</arg>
+<arg>${credentials[2]}</arg>
+</arguments>
+<msg timestamp="20190929 23:24:32.550" level="INFO">Typing text 'prachiadutkarsho11oobbbejain@gmail.com' into text field 'xpath=//input[@id='Email']'.</msg>
+<status status="PASS" starttime="20190929 23:24:32.546" endtime="20190929 23:24:32.881"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${password_textfield}</arg>
+<arg>${credentials[3]}</arg>
+</arguments>
+<msg timestamp="20190929 23:24:32.881" level="INFO">Typing text 'prachi@123' into text field 'xpath=//input[@id='Password']'.</msg>
+<status status="PASS" starttime="20190929 23:24:32.881" endtime="20190929 23:24:33.045"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>${login_button}</arg>
+</arguments>
+<msg timestamp="20190929 23:24:33.049" level="INFO">Clicking element 'xpath=//input[@value='Log in']'.</msg>
+<status status="PASS" starttime="20190929 23:24:33.045" endtime="20190929 23:24:33.608"></status>
+</kw>
+<status status="PASS" starttime="20190929 23:24:32.546" endtime="20190929 23:24:33.608"></status>
+</kw>
+<kw name="Get Status Code" library="Loginpage">
+<assign>
+<var>${booool}</var>
+</assign>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Verify Error Message For Not Registered</arg>
+</arguments>
+<assign>
+<var>${status_code}</var>
+</assign>
+<kw name="Verify Error Message For Not Registered" library="Loginpage">
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>Login was unsuccessful. Please correct the errors and try again.</arg>
+</arguments>
+<msg timestamp="20190929 23:24:33.652" level="INFO">Current page contains text 'Login was unsuccessful. Please correct the errors and try again.'.</msg>
+<status status="PASS" starttime="20190929 23:24:33.612" endtime="20190929 23:24:33.652"></status>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>No customer account found</arg>
+</arguments>
+<msg timestamp="20190929 23:24:33.680" level="INFO">Current page contains text 'No customer account found'.</msg>
+<status status="PASS" starttime="20190929 23:24:33.652" endtime="20190929 23:24:33.680"></status>
+</kw>
+<status status="PASS" starttime="20190929 23:24:33.612" endtime="20190929 23:24:33.680"></status>
+</kw>
+<msg timestamp="20190929 23:24:33.680" level="INFO">${status_code} = True</msg>
+<status status="PASS" starttime="20190929 23:24:33.612" endtime="20190929 23:24:33.684"></status>
+</kw>
+<msg timestamp="20190929 23:24:33.684" level="INFO">${booool} = True</msg>
+<status status="PASS" starttime="20190929 23:24:33.608" endtime="20190929 23:24:33.684"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${booool}</arg>
+<arg>User Registers</arg>
+<arg>${roww}</arg>
+<arg>@{credentialss}</arg>
+<arg>ELSE</arg>
+<arg>Verify Successful Login</arg>
+<arg>${roww}</arg>
+<arg>@{credentialss}</arg>
+</arguments>
+<kw name="User Registers" library="Demowebshop">
+<arguments>
+<arg>${roww}</arg>
+<arg>@{credentialss}</arg>
+</arguments>
+<kw name="Register Yourself" library="Loginpage">
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>${register}</arg>
+</arguments>
+<msg timestamp="20190929 23:24:33.688" level="INFO">Clicking element 'xpath=//input[@value='Register']'.</msg>
+<status status="PASS" starttime="20190929 23:24:33.688" endtime="20190929 23:24:34.272"></status>
+</kw>
+<status status="PASS" starttime="20190929 23:24:33.684" endtime="20190929 23:24:34.272"></status>
+</kw>
+<kw name="Enter Credentials" library="Registerpage">
+<arguments>
+<arg>@{creden}</arg>
+</arguments>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>xpath=//input[@id='gender-</arg>
+</arguments>
+<assign>
+<var>${base}</var>
+</assign>
+<msg timestamp="20190929 23:24:34.272" level="INFO">${base} = xpath=//input[@id='gender-</msg>
+<status status="PASS" starttime="20190929 23:24:34.272" endtime="20190929 23:24:34.276"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>']</arg>
+</arguments>
+<assign>
+<var>${tail}</var>
+</assign>
+<msg timestamp="20190929 23:24:34.276" level="INFO">${tail} = ']</msg>
+<status status="PASS" starttime="20190929 23:24:34.276" endtime="20190929 23:24:34.276"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${base}${credentials[4]}${tail}</arg>
+</arguments>
+<assign>
+<var>${gender}</var>
+</assign>
+<msg timestamp="20190929 23:24:34.276" level="INFO">${gender} = xpath=//input[@id='gender-female']</msg>
+<status status="PASS" starttime="20190929 23:24:34.276" endtime="20190929 23:24:34.276"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>${gender}</arg>
+</arguments>
+<msg timestamp="20190929 23:24:34.276" level="INFO">Clicking element 'xpath=//input[@id='gender-female']'.</msg>
+<status status="PASS" starttime="20190929 23:24:34.276" endtime="20190929 23:24:34.367"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${firstname}</arg>
+<arg>${credentials[0]}</arg>
+</arguments>
+<msg timestamp="20190929 23:24:34.371" level="INFO">Typing text 'Prachi' into text field 'xpath=//input[@id='FirstName']'.</msg>
+<status status="PASS" starttime="20190929 23:24:34.371" endtime="20190929 23:24:34.511"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${lastname}</arg>
+<arg>${credentials[1]}</arg>
+</arguments>
+<msg timestamp="20190929 23:24:34.511" level="INFO">Typing text 'Jain' into text field 'xpath=//input[@id='LastName']'.</msg>
+<status status="PASS" starttime="20190929 23:24:34.511" endtime="20190929 23:24:34.635"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${email}</arg>
+<arg>${credentials[2]}</arg>
+</arguments>
+<msg timestamp="20190929 23:24:34.639" level="INFO">Typing text 'prachiadutkarsho11oobbbejain@gmail.com' into text field 'xpath=//input[@id='Email']'.</msg>
+<status status="PASS" starttime="20190929 23:24:34.635" endtime="20190929 23:24:34.939"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${password}</arg>
+<arg>${credentials[3]}</arg>
+</arguments>
+<msg timestamp="20190929 23:24:34.939" level="INFO">Typing text 'prachi@123' into text field 'xpath=//input[@id='Password']'.</msg>
+<status status="PASS" starttime="20190929 23:24:34.939" endtime="20190929 23:24:35.078"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${confirmpassword}</arg>
+<arg>${credentials[3]}</arg>
+</arguments>
+<msg timestamp="20190929 23:24:35.082" level="INFO">Typing text 'prachi@123' into text field 'xpath=//input[@id='ConfirmPassword']'.</msg>
+<status status="PASS" starttime="20190929 23:24:35.078" endtime="20190929 23:24:35.222"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>${register}</arg>
+</arguments>
+<msg timestamp="20190929 23:24:35.226" level="INFO">Clicking element 'xpath=//input[@value='Register']'.</msg>
+<status status="PASS" starttime="20190929 23:24:35.226" endtime="20190929 23:24:36.313"></status>
+</kw>
+<status status="PASS" starttime="20190929 23:24:34.272" endtime="20190929 23:24:36.313"></status>
+</kw>
+<kw name="Verify Registration" library="Registerpage">
+<arguments>
+<arg>${row}</arg>
+<arg>@{creden}</arg>
+</arguments>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>${credentials1[2]}</arg>
+</arguments>
+<msg timestamp="20190929 23:24:36.345" level="INFO">Current page contains text 'prachiadutkarsho11oobbbejain@gmail.com'.</msg>
+<status status="PASS" starttime="20190929 23:24:36.317" endtime="20190929 23:24:36.345"></status>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>Your registration completed</arg>
+</arguments>
+<msg timestamp="20190929 23:24:36.373" level="INFO">Current page contains text 'Your registration completed'.</msg>
+<status status="PASS" starttime="20190929 23:24:36.345" endtime="20190929 23:24:36.373"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>New User Registered</arg>
+</arguments>
+<assign>
+<var>${message}</var>
+</assign>
+<msg timestamp="20190929 23:24:36.373" level="INFO">${message} = New User Registered</msg>
+<status status="PASS" starttime="20190929 23:24:36.373" endtime="20190929 23:24:36.377"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>6</arg>
+</arguments>
+<assign>
+<var>${col_no}</var>
+</assign>
+<msg timestamp="20190929 23:24:36.377" level="INFO">${col_no} = 6</msg>
+<status status="PASS" starttime="20190929 23:24:36.377" endtime="20190929 23:24:36.377"></status>
+</kw>
+<kw name="Open Excel Document" library="ExcelLibrary">
+<doc>Opens xlsx document file.</doc>
+<arguments>
+<arg>filename=DemoWebShopData.xlsx</arg>
+<arg>doc_id=${row}</arg>
+</arguments>
+<status status="PASS" starttime="20190929 23:24:36.377" endtime="20190929 23:24:36.393"></status>
+</kw>
+<kw name="Write Excel Cell" library="ExcelLibrary">
+<doc>Writes value to the cell.</doc>
+<arguments>
+<arg>${row}</arg>
+<arg>${col_no}</arg>
+<arg>${message}</arg>
+</arguments>
+<status status="PASS" starttime="20190929 23:24:36.393" endtime="20190929 23:24:36.393"></status>
+</kw>
+<kw name="Save Excel Document" library="ExcelLibrary">
+<doc>Saves the current document to disk.</doc>
+<arguments>
+<arg>filename=DemoWebShopData.xlsx</arg>
+</arguments>
+<status status="PASS" starttime="20190929 23:24:36.397" endtime="20190929 23:24:36.417"></status>
+</kw>
+<kw name="Close Current Excel Document" library="ExcelLibrary">
+<doc>Closes current document.</doc>
+<status status="PASS" starttime="20190929 23:24:36.417" endtime="20190929 23:24:36.417"></status>
+</kw>
+<kw name="Click Link" library="SeleniumLibrary">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>${logout}</arg>
+</arguments>
+<msg timestamp="20190929 23:24:36.417" level="INFO">Clicking link 'xpath=//a[@href='/logout']'.</msg>
+<status status="PASS" starttime="20190929 23:24:36.417" endtime="20190929 23:24:37.367"></status>
+</kw>
+<status status="PASS" starttime="20190929 23:24:36.317" endtime="20190929 23:24:37.367"></status>
+</kw>
+<status status="PASS" starttime="20190929 23:24:33.684" endtime="20190929 23:24:37.367"></status>
+</kw>
+<status status="PASS" starttime="20190929 23:24:33.684" endtime="20190929 23:24:37.367"></status>
+</kw>
+<status status="PASS" starttime="20190929 23:24:32.546" endtime="20190929 23:24:37.367"></status>
+</kw>
+<status status="PASS" starttime="20190929 23:24:31.903" endtime="20190929 23:24:37.367"></status>
+</kw>
+<status status="PASS" starttime="20190929 23:24:12.336" endtime="20190929 23:24:37.371"></status>
+</kw>
+<kw name="Close The Browser" library="Commons" type="teardown">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20190929 23:24:37.371" endtime="20190929 23:24:40.875"></status>
+</kw>
+<status status="PASS" starttime="20190929 23:24:37.371" endtime="20190929 23:24:40.875"></status>
+</kw>
+<status status="PASS" starttime="20190929 23:24:00.950" endtime="20190929 23:24:40.875" critical="yes"></status>
+</test>
+<doc>This is the test suite for automating demowebshop site</doc>
+<status status="PASS" starttime="20190929 23:23:58.839" endtime="20190929 23:24:40.878"></status>
+</suite>
+<status status="PASS" starttime="20190929 23:23:58.837" endtime="20190929 23:24:40.879"></status>
+</suite>
+<status status="PASS" starttime="20190929 23:23:58.802" endtime="20190929 23:24:40.883"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0">Critical Tests</stat>
+<stat pass="1" fail="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" id="s1" name="Demowebshop">Demowebshop</stat>
+<stat pass="1" fail="0" id="s1-s1" name="Tests">Demowebshop.Tests</stat>
+<stat pass="1" fail="0" id="s1-s1-s1" name="Registration">Demowebshop.Tests.Registration</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
